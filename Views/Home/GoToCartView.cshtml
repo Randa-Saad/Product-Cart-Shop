@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "GoToCartView";
+    //var P11 = Session["P1"] as ProductDetail ;
+
+}
+
+<h2>GoToCartView</h2>
+@*@using (Html.BeginForm("CalculateTotal", "Home", FormMethod.Post))
+{*@
+    <div>
+
+        Product Name: <span id="ProductName">@((Session["Data"] as ProductDetail).ProductName)</span>
+        <br/>
+        Product Price:<span id="ProductPrice"> @((Session["Data"] as ProductDetail).ProductPrice)</span>
+        <br/>
+        Quantity(between 1 and 5):<input type="number" id="quantityofitem" name="quantity" min="1" max="5">
+        <br/>
+        Delievery:<span id="DelieveryPrice">30 </span><span>$</span>
+        <br/>
+        <input type="button" onClick="document.getElementById("result").innerHTML=30+parseInt((Session["Data"] as ProductDetail).ProductPrice)*parseInt(document.getElementById("quantityofitem").value)""
+               Value="GetTotal"/>
+        <br/>
+        <br/>
+        Total:<span id="result"></span>
+    @*<input type="submit" value="CheckOut" class="btn-dark" />*@
+    </div>
+@*}*@
+
+
