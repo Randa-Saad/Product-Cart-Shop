@@ -137,9 +137,9 @@
       <DependentUpon>202202072151553_initcreat.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Item.cs" />
     <Compile Include="Models\Model1.cs" />
     <Compile Include="Models\ProductDetail.cs" />
+    <Compile Include="Models\ProductOrder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

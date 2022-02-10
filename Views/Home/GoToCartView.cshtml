@@ -1,30 +1,41 @@
-﻿
+﻿@model IEnumerable<Product_Cart_Shop_Task.Models.ProductDetail>
+@*@model IEnumerable<Product_Cart_Shop_Task.Models.ProductOrder>*@
 @{
     ViewBag.Title = "GoToCartView";
     //var P11 = Session["P1"] as ProductDetail ;
-
 }
-
 <h2>GoToCartView</h2>
-@*@using (Html.BeginForm("CalculateTotal", "Home", FormMethod.Post))
-{*@
-    <div>
 
-        Product Name: <span id="ProductName">@((Session["Data"] as ProductDetail).ProductName)</span>
-        <br/>
-        Product Price:<span id="ProductPrice"> @((Session["Data"] as ProductDetail).ProductPrice)</span>
-        <br/>
-        Quantity(between 1 and 5):<input type="number" id="quantityofitem" name="quantity" min="1" max="5">
-        <br/>
-        Delievery:<span id="DelieveryPrice">30 </span><span>$</span>
-        <br/>
-        <input type="button" onClick="document.getElementById("result").innerHTML=30+parseInt((Session["Data"] as ProductDetail).ProductPrice)*parseInt(document.getElementById("quantityofitem").value)""
-               Value="GetTotal"/>
-        <br/>
-        <br/>
-        Total:<span id="result"></span>
-    @*<input type="submit" value="CheckOut" class="btn-dark" />*@
-    </div>
-@*}*@
+<div>
+
+    Product Name: <span id="ProductName">@((Session["Data"] as ProductDetail).ProductName)</span>
+    <br />
+    Product Price:<span id="ProductPrice"> @((Session["Data"] as ProductDetail).ProductPrice)</span>
+    <br />
+    Delievery:<span id="DelieveryPrice">30 </span><span>$</span>
+    Quantity(between 1 and 5):
+    @using (Html.BeginForm("CalculateTotal", "Home", FormMethod.Post))
+    {
+
+        <input style="visibility: hidden;" class="form-control" type="button"
+               Value="@((Session["Data"] as ProductDetail).ProductID)" />
+        <input type="text" style="visibility: hidden;" class="form-control"  value="@((Session["Data"] as ProductDetail).ProductPrice)" />
+
+        <input type="text" class="form-control"  value="@ProductOrder.ProductQuantity"/>
+     
+        <input type="submit" value="CheckOut" class="btn-dark" />
+    }
+    <br />
+    <br />
+    Total:< span id = "result" ></ span >
+
+    <script>
+    function OnResult()
+    {
+    ProductPriceNum = parseInt(@(Session["Data"] as ProductDetail).ProductPrice);
+    ProductQuantityNum = parseInt(document.getElementById("quantityofitem").value);
+    document.getElementById("result").innerHTML = (ProductPriceNum * ProductQuantityNum) + 30;
+    }
+    </script>
 
 

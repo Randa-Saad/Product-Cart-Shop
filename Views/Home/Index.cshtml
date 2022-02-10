@@ -1,8 +1,9 @@
 ﻿@model IEnumerable<Product_Cart_Shop_Task.Models.ProductDetail>
 @{
     ViewBag.Title = "Index";
+    //var e11 = Session["e1"] as ProductDetail;
 }
-
+@*<h1>@e11.ProductPrice</h1>*@
 @foreach (var item in Model)
 {
 
@@ -25,11 +26,12 @@
                                     <span class="text-dark ">@item.ProductPrice $</span>
                                 </h6>
                                 <button>
-                                        @Html.ActionLink("Add To Cart", "GoToCartView", "ProductID", new { id = item.ProductID })
-                                    </button>
+                                    @*@Html.ActionLink("Add To Cart", "GoToCartView", "ProductID", new { Id = item.ProductID })*@
+                                    @Html.ActionLink("Add To Cart", "GoToCartView", new { id = item.ProductID })
+                                </button>
 
                                 @*<button type="submit" class="text-center"><i class="fa fa-shopping-cart">Add To Cart</i></button>*@
-                               
+
                             </div>
 
                         </div>
@@ -39,6 +41,13 @@
             </div>
         </div>
     </div>
+
+    @*<div class="row mt-2" dir="rtl">
+        add this
+        <input hidden name="id" value="@item.ProductID" />
+        <button type="submit" class="btn btn-danger">Upload</button>
+    </div>*@
 }
+
 
 
